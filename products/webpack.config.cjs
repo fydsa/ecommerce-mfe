@@ -10,13 +10,22 @@ module.exports = {
 	devServer: {
 		port: 8081,
 	},
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+		],
+	},
 	mode: 'development',
 	plugins: [
 		new ModuleFederationPlugin({
 			name: 'products',
 			filename: 'remoteEntry.js',
 			exposes: {
-				'./ProductsIndex': './src/index',
+				'./ProductsIndex': './src/bootstrap.ts',
 			},
 			shared: ['@faker-js/faker'],
 			// shared: {

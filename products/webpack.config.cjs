@@ -19,6 +19,11 @@ module.exports = {
 				'./ProductsIndex': './src/index',
 			},
 			shared: ['@faker-js/faker'],
+			// shared: {
+			// 	'@faker-js/faker': {
+			// 		singleton: true, //NOTE: This is for when we want to put in a single copy of the module even if there are different versions used in the sub-apps
+			// 	},
+			// },
 		}),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',

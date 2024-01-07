@@ -8,15 +8,15 @@ module.exports = {
 		extensions: ['.ts', '.tsx', '.js'],
 	},
 	devServer: {
-		port: 8080,
+		port: 8082,
 	},
 	mode: 'development',
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'container',
-			remotes: {
-				products: 'products@http://localhost:8081/remoteEntry.js',
-				cart: 'cart@http://localhost:8082/remoteEntry.js',
+			name: 'cart',
+			filename: 'remoteEntry.js',
+			exposes: {
+				'./CartIndex': './src/index',
 			},
 		}),
 		new HtmlWebpackPlugin({

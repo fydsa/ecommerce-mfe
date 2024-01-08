@@ -7,7 +7,7 @@ const mount = (el: Element) => {
 };
 
 if (process.env.NODE_ENV === 'development') {
-	const el = document.querySelector('#dev-cart');
+	const el = document.querySelector('#cart');
 	if (el) mount(el);
 }
 
